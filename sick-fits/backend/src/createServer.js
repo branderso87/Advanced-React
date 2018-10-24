@@ -5,17 +5,17 @@ const db = require('./db')
 
 //Create the GraphQL Yoga ServiceWorkerRegistration
 
-function createrServer() {
+function createServer() {
     return new GraphQLServer ({
         typeDefs: 'src/schema.graphql',
         resolvers: {
             Mutation,
             Query
-        }
+        },
         resolverValidationOptions: {
             requireResolversForResolveType: false
         },
-        context: req => ({...req, db})
+        context: req => ({ ...req, db })
     })
 }
 
